@@ -1,16 +1,17 @@
-# This is a sample Python script.
+# Завдання 1 Написати рекурсивну функцію знаходження ступеня числа.
+def get_num_pow(number, degree):
+    if degree == 1:
+        return number
+    elif degree == 0:
+        return 1
+    elif degree < 0:
+        return 1 / get_num_pow(number, -degree)
+    else:
+        return number * get_num_pow(number, degree - 1)
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
+print(get_num_pow(7, 3))
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# get_num_pow(7,3) -> 7 * get_num_pow(7, 2) => 343
+# get_num_pow(7,2) -> 7 * get_num_pow(7, 1) => 49
+# get_num_pow(7,1) -> 7 * get_num_pow(7, 0) => 7
